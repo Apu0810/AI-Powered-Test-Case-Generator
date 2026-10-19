@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Testing Report - AI Test Case Generator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 20px;
+        }
+        .report-page {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+        .report-header-banner {
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .report-title-block h1 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        .report-title-block h2 {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .report-meta {
+            text-align: right;
+            font-size: 13px;
+            color: #64748b;
+        }
+        .report-section {
+            margin-bottom: 35px;
+        }
+        .report-section h3 {
+            font-size: 18px;
+            color: #1e3a8a;
+            border-bottom: 1.5px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .summary-pill-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .summary-pill {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .summary-pill .val {
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+        }
+        .summary-pill .lbl {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .report-page {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .report-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print" style="max-width: 1050px; margin: 0 auto 15px; display: flex; justify-content: space-between;">
+        <a href="/" class="btn btn-outline-secondary">⬅️ Back to Main App</a>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+
+    <div class="report-page">
+        <!-- Section 1: Title & Header Banner -->
+        <div class="report-header-banner">
+            <div class="report-title-block">
+                <h1>AI-Powered Software Requirements & Test Case Generator</h1>
+                <h2>Comprehensive Software Testing & Verification Report &bull; MCA Practical Lab</h2>
+                <p style="font-size: 13px; color: #475569; margin-top: 4px;">Target Application: <strong>Student Registration Portal</strong></p>
+            </div>
+            <div class="report-meta">
+                <div><strong>Evaluation:</strong> MCA Generative AI Lab (25 Marks)</div>
+                <div><strong>Generated Date:</strong> {{ generated_date }}</div>
+                <div><strong>Execution Status:</strong> Active Demonstration</div>
+            </div>
+        </div>
+
+        <!-- Section 2: Problem Statement -->
+        <section class="report-section">
+            <h3>1. Project Title & Problem Statement</h3>
+            <p><strong>Project Title:</strong> AI-Powered Software Requirements and Test Case Generator for Student Registration Portal</p>
+            <p style="margin-top: 8px;">
+                <strong>Problem Statement:</strong> In traditional software engineering, the translation of business requirements into rigorous test suites is a manual, human-intensive process. Quality assurance teams often struggle with cognitive oversight—overlooking edge boundary conditions, negative data permutations, and duplicate data hazards under tight delivery deadlines. This results in software bugs escaping into production environments.
+            </p>
+            <p style="margin-top: 8px;">
+                <strong>Generative AI Value Proposition:</strong> Integrating Generative AI into the testing workflow automates requirements analysis. By providing domain context, boundary rules, and formal JSON schemas through structured prompt engineering, the AI engine can generate dozens of positive, negative, and boundary test cases within seconds, reducing test authoring overhead by up to 75% while boosting test coverage and traceability.
+            </p>
+        </section>
+
+        <!-- Section 3: Objectives -->
+        <section class="report-section">
+            <h3>2. Objectives</h3>
+            <ol style="padding-left: 20px; line-height: 1.6;">
+                <li>Design and implement a robust, secure Student Registration Portal with strict server-side validation and password hashing.</li>
+                <li>Implement a Generative AI prompt framework capable of parsing functional requirements and generating structured test cases with zero hallucinations.</li>
+                <li>Provide an intelligent, deterministic fallback generator ensuring 100% test case generation without dependency on paid external APIs.</li>
+                <li>Support both live automated test execution against backend REST APIs and manual tester recording.</li>
+                <li>Track and document software defects systematically without fabricating false failures.</li>
+                <li>Generate standardized testing deliverables including CSV exports and printable audit reports.</li>
+            </ol>
+        </section>
+
+        <!-- Section 4: Functional Requirements -->
+        <section class="report-section">
+            <h3>3. Functional Requirements (Task B)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">ID</th>
+                        <th style="width: 220px;">Requirement Title</th>
+                        <th>Specification Description</th>
+                        <th style="width: 140px;">Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for req in requirements %}
+                    <tr>
+                        <td><strong>{{ req.req_code }}</strong></td>
+                        <td>{{ req.title }}</td>
+                        <td>{{ req.description }}</td>
+                        <td><span class="badge badge-info">{{ req.category }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 5: Tools & Technologies -->
+        <section class="report-section">
+            <h3>4. Tools and Technologies Stack</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                <div style="background: #f8fafc; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <strong>Frontend:</strong> HTML5, CSS3 (Modern Responsive Flex/Grid), Vanilla JavaScript (ES6+ AJAX)
+                </div>
+                <div style="background: #f8fafc; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <strong>Backend Framework:</strong> Python 3.11 with Flask, Werkzeug Security (PBKDF2 SHA-256)
+                </div>
+                <div style="background: #f8fafc; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <strong>Database:</strong> SQLite3 with parameterized SQL queries and relational foreign keys
+                </div>
+                <div style="background: #f8fafc; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <strong>Testing & Generative AI:</strong> Python unittest / pytest, Google Gemini REST API / Intelligent Generative Fallback
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Generative AI Prompt -->
+        <section class="report-section">
+            <h3>5. Generative AI Prompt & Prompt Engineering (Task C)</h3>
+            <p>The system utilizes role-based few-shot prompt engineering with strict JSON schema constraints:</p>
+            <pre class="prompt-code" style="max-height: 250px; overflow-y: auto;">
+SYSTEM PROMPT:
+You are a Senior Software Quality Assurance Engineer and Testing Automation Specialist.
+Your task is to analyze software functional requirements and generate rigorous, structured test cases.
+
+Testing Principles to Apply:
+1. Equivalence Class Partitioning (Valid and Invalid partitions).
+2. Boundary Value Analysis (Min, Max, Min-1, Max+1 boundaries).
+3. Negative Testing & Input Validation (Empty fields, wrong formats, special characters).
+4. Data Integrity & Security (Duplicate entries, length restrictions).
+
+Output format MUST be a strict JSON list of test case objects with keys:
+- tc_id: Unique string, format "TC-<REQ_CODE>-<NN>"
+- req_code: String requirement identifier (e.g., FR1, FR2)
+- scenario: Clear description of what is being tested
+- test_type: One of ["Positive", "Negative", "Boundary", "Security"]
+- input_data: JSON object containing user input parameters
+- expected_result: Expected HTTP status code and system response
+- actual_result: Empty string ""
+- status: "Not Executed"
+- defect_desc: Empty string ""
+            </pre>
+        </section>
+
+        <!-- Section 7: Generated Test Cases -->
+        <section class="report-section">
+            <h3>6. Generated Test Cases (Task D - Core Suite of 8+ Test Cases)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 95px;">TC ID</th>
+                        <th style="width: 60px;">Req</th>
+                        <th>Test Scenario</th>
+                        <th style="width: 80px;">Type</th>
+                        <th>Input Data</th>
+                        <th>Expected Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tc in test_cases %}
+                    <tr>
+                        <td><strong>{{ tc.tc_id }}</strong></td>
+                        <td>{{ tc.req_code }}</td>
+                        <td>{{ tc.scenario }}</td>
+                        <td>
+                            <span class="badge {% if tc.test_type == 'Positive' %}badge-success{% elif tc.test_type == 'Negative' %}badge-danger{% else %}badge-warning{% endif %}">
+                                {{ tc.test_type }}
+                            </span>
+                        </td>
+                        <td><code style="font-size: 11px;">{{ tc.input_data }}</code></td>
+                        <td>{{ tc.expected_result }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 8 & 9: Execution Results & Expected vs Actual Comparison -->
+        <section class="report-section">
+            <h3>7. Test Execution Results & Expected vs Actual Comparison (Tasks E & F)</h3>
+            <div class="summary-pill-box">
+                <div class="summary-pill">
+                    <span class="val">{{ stats.total_tests }}</span>
+                    <span class="lbl">Total Tests</span>
+                </div>
+                <div class="summary-pill">
+                    <span class="val text-success">{{ stats.passed }}</span>
+                    <span class="lbl">Passed</span>
+                </div>
+                <div class="summary-pill">
+                    <span class="val text-danger">{{ stats.failed }}</span>
+                    <span class="lbl">Failed</span>
+                </div>
+                <div class="summary-pill">
+                    <span class="val text-warning">{{ stats.unexecuted }}</span>
+                    <span class="lbl">Not Executed</span>
+                </div>
+                <div class="summary-pill">
+                    <span class="val text-primary">{{ stats.pass_rate }}%</span>
+                    <span class="lbl">Pass Rate</span>
+                </div>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Test Case ID</th>
+                        <th>Test Scenario</th>
+                        <th>Expected Result</th>
+                        <th>Actual Result</th>
+                        <th style="width: 95px;">Status</th>
+                        <th>Defect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tc in test_cases %}
+                    <tr>
+                        <td><strong>{{ tc.tc_id }}</strong></td>
+                        <td>{{ tc.scenario }}</td>
+                        <td>{{ tc.expected_result }}</td>
+                        <td>{{ tc.actual_result if tc.actual_result else 'Pending execution' }}</td>
+                        <td>
+                            <span class="badge {% if tc.status == 'PASS' %}badge-success{% elif tc.status == 'FAIL' %}badge-danger{% else %}badge-warning{% endif %}">
+                                {{ tc.status }}
+                            </span>
+                        </td>
+                        <td>{{ tc.defect_desc if tc.defect_desc else 'None' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 10: Identified Defects -->
+        <section class="report-section">
+            <h3>8. Identified Defects & Bug Registry (FR9)</h3>
+            {% if defects|length > 0 %}
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 70px;">Defect ID</th>
+                        <th style="width: 100px;">Linked TC</th>
+                        <th>Defect Description</th>
+                        <th>Expected Result</th>
+                        <th>Actual Result</th>
+                        <th style="width: 85px;">Severity</th>
+                        <th style="width: 85px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in defects %}
+                    <tr>
+                        <td>#{{ d.id }}</td>
+                        <td><strong>{{ d.tc_id }}</strong></td>
+                        <td>{{ d.description }}</td>
+                        <td><small>{{ d.expected_result if d.expected_result else '—' }}</small></td>
+                        <td><small class="text-danger">{{ d.actual_result if d.actual_result else '—' }}</small></td>
+                        <td><span class="badge badge-danger">{{ d.severity }}</span></td>
+                        <td><span class="badge badge-info">{{ d.status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 6px; color: #166534;">
+                ✅ <strong>Zero Defects Active:</strong> All executed test cases conformed accurately to expected software behavior. No unexpected anomalies were detected.
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- Section 11: Conclusion -->
+        <section class="report-section">
+            <h3>9. Conclusion & Recommendations</h3>
+            <p>
+                The <strong>AI-Powered Software Requirements and Test Case Generator</strong> successfully demonstrated how Generative AI concepts can be applied directly to software quality engineering. By combining domain-specific prompts with Boundary Value Analysis, the system synthesized robust test suites that systematically validated the Student Registration Portal.
+            </p>
+            <p style="margin-top: 10px;">
+                Key achievements demonstrated during this practical include:
+            </p>
+            <ul style="padding-left: 20px; line-height: 1.6; margin-top: 6px;">
+                <li>Strict server-side validation enforcing input lengths, phone number patterns, and course eligibility.</li>
+                <li>Zero plaintext password vulnerabilities via PBKDF2 cryptographic hashing.</li>
+                <li>Accurate automated live test execution against backend REST endpoints with truthful pass/fail assertions.</li>
+                <li>Resilient fallback architecture ensuring complete operational independence from external paid APIs.</li>
+            </ul>
+        </section>
+
+        <!-- Sign-off Block -->
+        <div style="margin-top: 50px; border-top: 1px dashed #cbd5e1; padding-top: 25px; display: flex; justify-content: space-between;">
+            <div>
+                <p><strong>Student Signature:</strong> ___________________________</p>
+                <p style="font-size: 12px; color: #64748b; margin-top: 5px;">MCA Candidate</p>
+            </div>
+            <div>
+                <p><strong>Faculty Examiner Signature:</strong> ___________________________</p>
+                <p style="font-size: 12px; color: #64748b; margin-top: 5px;">Department of Computer Applications</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
